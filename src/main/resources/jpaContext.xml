@@ -16,18 +16,21 @@
 	
 	<context:annotation-config />
 	
+	<!-- More convenient properties file injection into XML  -->	
+	<context:property-placeholder location="classpath:application.properties"/>
+	<!-- Property values injection from application.properties 
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+	    	<value>classpath:application.properties</value>
+		</property>
+	</bean>-->
+	
 	<!-- Spring Data support 
 	<jpa:repositories base-package="com.example.repository"/> -->	
 	<!-- Spring Data support -->
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	
-	<!-- Property values injection from application.properties -->
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location">
-	    	<value>classpath:application.properties</value>
-		</property>
-	</bean>
 	
 	<!-- Entity Manager Join our JPA provider with datasource   -->
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
